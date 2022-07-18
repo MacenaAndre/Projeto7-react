@@ -75,7 +75,7 @@ function Post(props) {
                   </div>
     
                   <div class="conteudo" onClick={LikeImg}>
-                    <video controls autoPlay muted>
+                    <video autoPlay muted>
                         <source src={props.pimg} type="video/mp4"/>
                     </video> 
                   </div>
