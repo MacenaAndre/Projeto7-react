@@ -1,12 +1,12 @@
 import Sugestions from "./sugestions";
 
-function User() {
+function User(props) {
     return (
         <div class="usuario">
-            <img src="assets/img/catanacomics.svg" />
+            <img src={props.img} />
             <div class="texto">
-              <strong>catanacomics</strong>
-              Catana
+              <strong>{props.username}</strong>
+              {props.name}
             </div>
         </div>
     );
@@ -29,7 +29,7 @@ function Copyright() {
 function Sidebar() {
     return (
         <div class="sidebar">
-            <User />
+            <User img={"assets/img/catanacomics.svg"} username={"catanacomics"} name={"Catana"}/>
             <Sugestions />
             <Links />
             <Copyright />
