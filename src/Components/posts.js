@@ -1,3 +1,5 @@
+import React from "react";
+
 const itemsPost = [
     {userimg: "assets/img/meowed.svg", username: "meowed", postimg: "assets/img/gato-telefone.svg", likeimg: "assets/img/respondeai.svg", likeuser: "respondeai", numblike: "101.523"},
     {userimg: "assets/img/barked.svg", username: "barked", postimg: "assets/img/dog.svg", likeimg: "assets/img/adorable_animals.svg", likeuser: "adorable_animals", numblike: "99.159"},
@@ -5,6 +7,23 @@ const itemsPost = [
 ]
 
 function Post(props) {
+
+    const [click, setClick] = React.useState("heart-outline");
+
+    function LikeIcon() {
+        if(click === "heart-outline") {
+            setClick("heart");
+        } else {
+            setClick("heart-outline");
+        }
+    }
+
+    function LikeImg() {
+        if(click === "heart-outline") {
+            setClick("heart");
+        }
+    }
+
     return (
         <div class="post">
               <div class="topo">
@@ -17,14 +36,14 @@ function Post(props) {
                 </div>
               </div>
 
-              <div class="conteudo">
+              <div class="conteudo" onClick={LikeImg}>
                 <img src={props.pimg} />
               </div>
 
               <div class="fundo">
                 <div class="acoes">
                   <div>
-                    <ion-icon name="heart-outline"></ion-icon>
+                    <ion-icon name={click} onClick={LikeIcon}></ion-icon>
                     <ion-icon name="chatbubble-outline"></ion-icon>
                     <ion-icon name="paper-plane-outline"></ion-icon>
                   </div>
@@ -52,4 +71,4 @@ function Posts() {
     );
 }
 
-export default Posts;
+export default Posts; 
